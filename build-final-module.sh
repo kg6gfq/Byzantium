@@ -73,10 +73,12 @@ cp etc/ssl/openssl.cnf /tmp/fakeroot/etc/ssl
 # Install the CGI-BIN script that implements the service directory the users
 # see.
 cd ../service_directory
-cp index.html /tmp/fakeroot/srv/httpd/htdocs
-cp services.py /tmp/fakeroot/srv/httpd/cgi-bin
+mkdir /tmp/fakeroot/srv/httpd/htdocs
+cp index.html /tmp/fakeroot/srv/httpd/htdocs/
+mkdir /tmp/fakeroot/srv/httpd/cgi-bin
+cp services.py /tmp/fakeroot/srv/httpd/cgi-bin/
 chmod 0755 /tmp/fakeroot/srv/httpd/cgi-bin/services.py
-rm /tmp/fakeroot/srv/httpd/cgi-bin/printenv /tmp/fakeroot/srv/httpd/cgi-bin
+#rm /tmp/fakeroot/srv/httpd/cgi-bin/printenv /tmp/fakeroot/srv/httpd/cgi-bin
 
 # Add the custom Firefox configuration.
 cd ../porteus
@@ -134,7 +136,7 @@ mkdir -p /tmp/fakeroot/etc/captiveportal
 cd ~guest/byzantium/captive_portal
 cp captive_portal.py /tmp/fakeroot/usr/local/sbin
 cp captive-portal.sh /tmp/fakeroot/usr/local/sbin
-cp mop_up_dead_clients.py/tmp/fakeroot/usr/local/sbin
+cp mop_up_dead_clients.py /tmp/fakeroot/usr/local/sbin
 cp etc/captiveportal/captiveportal.conf /tmp/fakeroot/etc/captiveportal/
 cp srv/captiveportal/* /tmp/fakeroot/srv/captiveportal/
 
