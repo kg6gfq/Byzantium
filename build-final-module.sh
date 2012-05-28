@@ -38,20 +38,20 @@ ln -s httpd www
 
 # We should build a controlpanel module to obviate these steps.
 mkdir -p /tmp/fakeroot/srv/controlpanel/graphs
-cp -rv ~guest/byzantium/control_panel/srv/controlpanel/* /tmp/fakeroot/srv/controlpanel
+cp -rv ~guest/Byzantium/control_panel/srv/controlpanel/* /tmp/fakeroot/srv/controlpanel
 mkdir -p /tmp/fakeroot/etc/controlpanel
-cp ~guest/byzantium/control_panel/etc/controlpanel/* /tmp/fakeroot/etc/controlpanel
+cp ~guest/Byzantium/control_panel/etc/controlpanel/* /tmp/fakeroot/etc/controlpanel
 mkdir -p /tmp/fakeroot/var/db/controlpanel
-cp -rv ~guest/byzantium/control_panel/var/db/controlpanel/* /tmp/fakeroot/var/db/controlpanel
+cp -rv ~guest/Byzantium/control_panel/var/db/controlpanel/* /tmp/fakeroot/var/db/controlpanel
 
 # We need to upgrade the version of Wicd to fix a bug, this is our own fix.
 # Note that when Poteus Linux updates to the latest stable version of wicd
 # this will become obsolete.
 mkdir -p /tmp/fakeroot/usr/share/wicd/cli
-cp ~guest/byzantium/porteus/wicd/usr/share/wicd/cli/wicd-cli.py /tmp/fakeroot/usr/share/wicd/cli/
+cp ~guest/Byzantium/porteus/wicd/usr/share/wicd/cli/wicd-cli.py /tmp/fakeroot/usr/share/wicd/cli/
 
 # Install our custom udev automount rules.
-cd ~guest/byzantium/scripts
+cd ~guest/Byzantium/scripts
 mkdir -p /tmp/fakeroot/etc/udev/rules.d
 cp 11-media-by-label-auto-mount.rules /tmp/fakeroot/etc/udev/rules.d
 
@@ -74,9 +74,9 @@ cp etc/ssl/openssl.cnf /tmp/fakeroot/etc/ssl
 # see.
 cd ../service_directory
 mkdir /tmp/fakeroot/srv/httpd/htdocs
-cp index.html /tmp/fakeroot/srv/httpd/htdocs/
+cp index.html /tmp/fakeroot/srv/httpd/htdocs
 mkdir /tmp/fakeroot/srv/httpd/cgi-bin
-cp services.py /tmp/fakeroot/srv/httpd/cgi-bin/
+cp services.py /tmp/fakeroot/srv/httpd/cgi-bin
 chmod 0755 /tmp/fakeroot/srv/httpd/cgi-bin/services.py
 #rm /tmp/fakeroot/srv/httpd/cgi-bin/printenv /tmp/fakeroot/srv/httpd/cgi-bin
 
@@ -133,7 +133,7 @@ chmod 0750 /tmp/fakeroot/var/run/ngircd
 # Install the captive portal daemon.
 mkdir -p /tmp/fakeroot/srv/captiveportal
 mkdir -p /tmp/fakeroot/etc/captiveportal
-cd ~guest/byzantium/captive_portal
+cd ~guest/Byzantium/captive_portal
 cp captive_portal.py /tmp/fakeroot/usr/local/sbin
 cp captive-portal.sh /tmp/fakeroot/usr/local/sbin
 cp mop_up_dead_clients.py /tmp/fakeroot/usr/local/sbin
