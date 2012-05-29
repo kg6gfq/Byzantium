@@ -74,7 +74,7 @@ if results:
         if test:
             line = line + 'https://localhost'
         else:
-            #line = line + os.environ['SERVER_PROTOCOL'] + '://' # There must be a better fix for this!
+            line = line + 'http' + '://' # There must be a better fix for this!
             line = line + os.environ['SERVER_NAME']
 
         # Detect and remove explicit references to port 80 or 443 because
@@ -102,7 +102,7 @@ if results:
         if test:
             line = line + 'http://localhost'
         else:
-            #line = line + os.environ['SERVER_PROTOCOL'] + '://' # There must be a better fix for this!
+            line = line + 'http' + '://' # There must be a better fix for this!
             line = line + os.environ['SERVER_NAME']
 
         # Detect and remove explicit references to port 80 or 443 because
